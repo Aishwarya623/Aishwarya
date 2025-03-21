@@ -86,14 +86,14 @@ var __filename = fileURLToPath(import.meta.url);
 var __dirname = dirname(__filename);
 var vite_config_default = defineConfig({
   base: "/Aishwarya/",
-  // ✅ Base for GitHub Pages (matches your repo name)
+  // ✅ Correct base for GitHub Pages
   plugins: [
     react(),
     runtimeErrorOverlay(),
     themePlugin(),
     {
       name: "copy-redirects",
-      // ✅ Copy _redirects automatically
+      // ✅ Custom plugin to copy _redirects after build
       closeBundle() {
         const src = path.resolve(__dirname, "_redirects");
         const dest = path.resolve(__dirname, "docs/_redirects");
