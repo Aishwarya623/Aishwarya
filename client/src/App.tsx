@@ -9,14 +9,14 @@ import { ErrorBoundary } from "@/components/common/ErrorBoundary";
 import ScrollToTop from "@/components/common/ScrollToTop";
 import PageTransition from "@/components/common/PageTransition";
 
-// Lazy load pages
+// ✅ Lazy load pages for better performance
 const Home = lazy(() => import("@/pages/Home"));
 const About = lazy(() => import("@/pages/About"));
 const Solutions = lazy(() => import("@/pages/Solutions"));
 const Team = lazy(() => import("@/pages/Team"));
 const Contact = lazy(() => import("@/pages/Contact"));
 
-// Loading fallback component
+// ✅ Loading fallback component
 function LoadingSpinner() {
   return (
     <div className="flex items-center justify-center min-h-[60vh]">
@@ -25,14 +25,17 @@ function LoadingSpinner() {
   );
 }
 
-// Main App Component
+// ✅ Main App Component
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ErrorBoundary>
         <Router>
           <div className="min-h-screen flex flex-col w-full">
+            {/* ✅ Navigation Bar */}
             <Navbar />
+            
+            {/* ✅ Main content with scroll and page transition */}
             <main className="flex-grow w-full">
               <ScrollToTop />
               <Suspense fallback={<LoadingSpinner />}>
@@ -43,12 +46,15 @@ function App() {
                     <Route path="/solutions" element={<Solutions />} />
                     <Route path="/team" element={<Team />} />
                     <Route path="/contact" element={<Contact />} />
-                    {/* Handle 404 - redirect to Home */}
+                    
+                    {/* ✅ Handle 404 - redirect to Home */}
                     <Route path="*" element={<Home />} />
                   </Routes>
                 </PageTransition>
               </Suspense>
             </main>
+            
+            {/* ✅ Footer and Toaster Notifications */}
             <Footer />
             <Toaster />
           </div>

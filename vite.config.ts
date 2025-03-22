@@ -54,8 +54,5 @@ export default defineConfig({
   },
 
   // ✅ Correct fallback for Single Page Applications (SPA)
-  preview: {
-    port: 4173, // Optional, for preview
-    open: true,
-  },
+  
 });
