@@ -119,6 +119,24 @@ var vite_config_default = defineConfig({
     emptyOutDir: true,
     // Clean the output directory before building
     assetsDir: "assets"
+  },
+  server: {
+    host: true,
+    // Enable external access (optional)
+    port: 3e3,
+    // Specify port (optional)
+    open: true,
+    // Open browser automatically on start
+    fs: {
+      strict: false
+      // To avoid file system restrictions (optional)
+    }
+  },
+  // ✅ Correct fallback for Single Page Applications (SPA)
+  preview: {
+    port: 4173,
+    // Optional, for preview
+    open: true
   }
 });
 
